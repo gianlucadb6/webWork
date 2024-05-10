@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const itemElement = document.createElement('div');
                 itemElement.classList.add('item');
                 itemElement.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}">
-                    <h3>${item.title}</h3>
+                    <img src="${item.imgPTH}" alt="${item.name}">
+                    <h3>${item.name}</h3>
                     <p>$${item.price}</p>
                 `;
                 itemContainer.appendChild(itemElement);
