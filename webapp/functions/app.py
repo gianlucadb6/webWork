@@ -3,13 +3,17 @@ from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
+def get_all_entries():
     conn = sqlite3.connect('inventory.db')
     cursor = conn.cursor()
-    cursor = conn.execute('SELECT * FROM inventory')
+    cursor.execute('SELECT * FROM inventory')
     entries = cursor.fetchall()
     conn.close()
+    return entries
+
+@app.route('/')
+def index():
+    entries = get_all_entries()
     return render_template('index.html', entries=entries)
 
 
