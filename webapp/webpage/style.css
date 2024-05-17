@@ -54,6 +54,7 @@ p{
     height: auto; 
     padding-top: 20%;
 }
+
 .logo-link {
     text-decoration: none; 
     display: inline-block; 
@@ -73,9 +74,11 @@ p{
 }
 
 .item img {
-    max-width: 100%; /* Ensure images don't exceed their container */
+    width: 100px;
+    height: 150px;
 }
 
 .item h3, .item p {
     margin: 5px 0; /* Add spacing between title, price, and image */
+    color: #000;
 }

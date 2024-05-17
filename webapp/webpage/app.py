@@ -21,7 +21,7 @@ def get_all_entries():
 
 @app.route('/')
 def index():
-    print(get_all_entries())
+    #print(get_all_entries())
     return get_all_entries()
 
 
