@@ -18,6 +18,8 @@ h1{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 450;
     color: white;
+    justify-content: center;
+    align-items: center;
 }
 
 h2{
@@ -33,26 +35,41 @@ p{
     color: white;
 }
 
+a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
 .header-section {
     display: flex;
     background-color: #000;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .image-container {
     flex: 1;
-    padding: 2%; 
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .text-container {
     flex: 3; 
     padding-right: 2%;
     padding-left: 2%;
+    justify-content: center;
+    align-items: center;
 }
 
 .image-container img {
     max-width: 100%; 
     height: auto; 
-    padding-top: 20%;
+    padding-top: 10%;
+}
+
+.store-section .item:hover {
+    transform: scale(1.2); 
 }
 
 .logo-link {
@@ -63,22 +80,25 @@ p{
 
 .store-section {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next row */
-    padding-top: 5%;
+    flex-wrap: wrap;
 }
 
 .item {
-    flex: 0 0 calc(33.33% - 10px); /* Set item width to 1/3 of the container with some margin */
-    margin: 5px; /* Add margin between items */
+    flex: 0 0 calc(33.33% - 10px); 
+    margin: 5px; 
     text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .item img {
     width: 100px;
     height: 150px;
+    padding-top: 10px;
 }
 
 .item h3, .item p {
-    margin: 5px 0; /* Add spacing between title, price, and image */
+    margin: 5px 0;
     color: #000;
 }

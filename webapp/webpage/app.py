@@ -24,6 +24,9 @@ def index():
     #print(get_all_entries())
     return get_all_entries()
 
+@app.route('/painting1')
+def subpage():
+    return render_template('subpage.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
