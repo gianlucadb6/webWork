@@ -12,7 +12,7 @@ def get_all_entries():
     cursor.execute('SELECT * FROM inventory')
     entries = cursor.fetchall()
     items = [
-        {"imgPTH": row[4], "name": row[1], "price": row[2]}
+        {"imgPTH": row[4], "name": row[1], "price": row[2], "description": row[3]}
         for row in entries
     ]
     conn.close()
@@ -24,10 +24,9 @@ def index():
     #print(get_all_entries())
     return get_all_entries()
 
-@app.route('/painting1')
+@app.route('/loadItem')
 def subpage():
-    return render_template('subpage.html')
+    return get_all_entries()
 
 if __name__ == '__main__':
     app.run(debug=True)
-

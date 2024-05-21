@@ -17,8 +17,20 @@
         </a>    
     </header>
     
-    <section>
-        <script> loadItemPage(); </script>
+    <section id = itemDetails>
+        <script> 
+
+            function getQueryParam(param) {
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                return urlParams.get(param);
+            }
+
+            const itemName = getQueryParam('item');
+
+            loadItemData(itemName);
+
+        </script>
     </section>
     
 </body>
