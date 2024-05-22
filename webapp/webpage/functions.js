@@ -45,3 +45,18 @@ function loadItemData(target){
             })
             .catch(error => console.error('Error fetching data:', error));
 }
+
+
+function toggleDropdown() {
+    var menu = document.getElementById("dropdownMenu");
+    if (menu.style.display === "block") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "block";
+    }
+}
+
+function hideDropdown() {
+    var dropdown = document.querySelector('.dropdown');
+    dropdown.classList.remove('active');
+}
