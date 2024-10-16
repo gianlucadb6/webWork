@@ -1,4 +1,4 @@
-import sqlite3 
+import sqlite3
 from flask import Flask, render_template, jsonify
 from flask_cors import CORS
 import logging
@@ -7,7 +7,7 @@ app = Flask(__name__, template_folder='.')
 CORS(app, resources={r"/*": {"origins": "http://localhost:8000"}})
 
 def get_all_entries():
-    conn = sqlite3.connect('inventory.db')
+    conn = sqlite3.connect('databases/inventory.db')
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM inventory')
     entries = cursor.fetchall()
@@ -21,12 +21,17 @@ def get_all_entries():
 
 @app.route('/')
 def index():
-    #print(get_all_entries())
-    return get_all_entries()
+    entries = get_all_entries()
+    return render_template('templates/index.html', entries=entries)
 
 @app.route('/loadItem')
-def subpage():
-    return get_all_entries()
+def load_item():
+    items = get_all_entries()
+    return jsonify(items)
+
+@app.route('/item/<item_name>')
+def item_page(item_name):
+    return render_template('item_page.html', item_name=item_name)
 
 if __name__ == '__main__':
     app.run(debug=True)
