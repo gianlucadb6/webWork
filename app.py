@@ -24,13 +24,16 @@ def index():
     entries = get_all_entries()
     return render_template('templates/index.html', entries=entries)
 
-@app.route('/loadItem')
+@app.route('/loadItems')
 def load_item():
     items = get_all_entries()
     return jsonify(items)
 
-@app.route('/item/<item_name>')
-def item_page(item_name):
+@app.route('/itemPage.html')
+def item_page():
+    item_name = request.args.get('item')
+    if item_name is None:
+        return "Item not found", 404 
     return render_template('item_page.html', item_name=item_name)
 
 if __name__ == '__main__':
