@@ -19,19 +19,12 @@
     </header>
 
     <section id = itemDetails>
-        <script>
-
-            function getQueryParam(param) {
-                const queryString = window.location.search;
-                const urlParams = new URLSearchParams(queryString);
-                return urlParams.get(param);
-            }
-
-            const itemName = getQueryParam('item');
-
-            loadItemData(itemName);
-
-        </script>
+        <div class="item-detail">
+           <img src="{{ url_for('static', filename=item.imgPTH) }}" alt="{{ item.name }}" class="item-image">
+           <h2>{{ item.name }}</h2>
+           <p>{{ item.description }}</p>
+           <h3>${{ item.price }}</h3>
+        </div>
     </section>
 
 </body>

@@ -1,7 +1,8 @@
 import sqlite3
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 import logging
+
 
 app = Flask(__name__, template_folder='.')
 CORS(app, resources={r"/*": {"origins": "http://localhost:8000"}})
@@ -29,12 +30,25 @@ def load_item():
     items = get_all_entries()
     return jsonify(items)
 
-@app.route('/itemPage.html')
-def item_page():
-    item_name = request.args.get('item')
-    if item_name is None:
-        return "Item not found", 404 
-    return render_template('item_page.html', item_name=item_name)
+@app.route('/item/<item_name>')
+def item_page(item_name):
+    conn = sqlite3.connect('databases/inventory.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM inventory WHERE name = ?', (item_name,))
+    row = cursor.fetchone()
+    conn.close()
+    if row:
+        item = {
+            "imgPTH": row[4],
+            "name": row[1],
+            "price": row[2],
+            "description": row[3]
+        }
+        return render_template('templates/itemPage.html', item=item)
+    else:
+        return "Item not found", 404
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

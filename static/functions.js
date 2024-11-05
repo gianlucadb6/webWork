@@ -9,7 +9,7 @@ if (window.location.pathname === '/' || window.location.pathname === '/index.htm
                     const itemElement = document.createElement('div');
                     itemElement.classList.add('item');
                     itemElement.innerHTML = `
-                    <a href="/itemPage.html?item=${item.name}" class="item">
+                    <a href="/item/${item.name}" class="item">
                             <img src="${item.imgPTH}" alt="${item.name}">
                             <h3>${item.name}</h3>
                             <p>$${item.price}</p>
@@ -36,6 +36,7 @@ function hideDropdown() {
     dropdown.classList.remove('active');
 }
 
+/*
 function loadItemData(target){
     //console.log(target)
     fetch('http://127.0.0.1:5000/loadItems')
@@ -58,6 +59,7 @@ function loadItemData(target){
             })
             .catch(error => console.error('Error fetching data:', error));
 }
+*/
 
 function getQueryParam(param) {
     const queryString = window.location.search; // e.g., "?item=painting1"

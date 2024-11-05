@@ -143,7 +143,7 @@ a {
 
 .store-section .item:hover {
     transform: scale(1.2);
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .item {
@@ -156,9 +156,9 @@ a {
 }
 
 .item img {
-    width: 100px;
-    height: 150px;
-    padding-top: 10px;
+    width: 1px;
+    height: 1px;
+    padding-top: 2px;
 }
 
 .item h3, .item p {
