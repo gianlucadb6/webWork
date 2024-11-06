@@ -9,11 +9,13 @@ if (window.location.pathname === '/' || window.location.pathname === '/index.htm
                     const itemElement = document.createElement('div');
                     itemElement.classList.add('item');
                     itemElement.innerHTML = `
-                    <a href="/item/${item.name}" class="item">
-                            <img src="${item.imgPTH}" alt="${item.name}">
+                    <a href="/item/${item.name}" class="item-link">
+                        <div class="item">
+                            <img src="static/${item.imgPTH}" alt="${item.name}">
                             <h3>${item.name}</h3>
                             <p>$${item.price}</p>
-                        </a>
+                        </div>
+                    </a>
                     `;
                     itemContainer.appendChild(itemElement);
                 });

@@ -1,3 +1,4 @@
+/* Base body styles */
 body {
     background: linear-gradient(#f2f3f4, #FAF9F6);
     background-attachment: fixed;
@@ -5,7 +6,7 @@ body {
     padding-bottom: 2%;
 }
 
-header{
+header {
     font-size: 38px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 750;
@@ -15,72 +16,22 @@ header{
     justify-content: space-between;
 }
 
+a {
+    text-decoration: none; /* Remove underline */
+    color: black;
+}
+
+a:hover {
+    color: #333;
+}
+
+/* Image Container for the Header Section */
 .header-section {
     display: flex;
     background-color: #f2f3f4;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-.logo-link {
-    text-decoration: none;
-    display: inline-block;
-    color: #000;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-toggle {
-    cursor: pointer;
-}
-
-.dropdown a:hover {
-    background-color: white;
-}
-
-.icon {
-    width: 25px;
-    height: 4px;
-    background-color: #333;
-    margin: 3px 0;
-    transition: background-color 0.3s ease;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 85px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    right: 0;
-}
-
-.dropdown-menu a {
-    color: black;
-    text-decoration: none;
-    display: block;
-    font-size: 15px;
-    padding: 1px;
-}
-
-.dropdown-menu a:hover {
-    background-color: #ddd;
-}
-
-.dropdown.active .icon {
-    background-color: transparent;
-}
-
-.dropdown.active .dropdown-menu {
-    display: block;
-}
-
-
-
 
 .image-container {
     flex: 1;
@@ -104,37 +55,7 @@ header{
     border-radius: 420px;
 }
 
-
-
-
-h1{
-    font-size: 24px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 450;
-    color: black;
-    justify-content: center;
-    align-items: center;
-}
-
-h2{
-    font-size: 24;
-    text-align: center;
-    color:#black;
-}
-
-p{
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 150;
-    color: black;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-
+/* Styles for the Index Page (Small images in store section) */
 .store-section {
     display: flex;
     flex-wrap: wrap;
@@ -147,7 +68,7 @@ a {
 }
 
 .item {
-    flex: 0 0 calc(33.33% - 10px);
+    flex: 0 0 calc(33.33% - 10px); /* Makes the items fit in 3 columns */
     margin: 5px;
     text-align: center;
     border-radius: 15px;
@@ -156,9 +77,10 @@ a {
 }
 
 .item img {
-    width: 1px;
-    height: 1px;
-    padding-top: 2px;
+    width: 150px; /* Set a fixed width for the images on the index page */
+    height: 200px; /* Set a fixed height to maintain aspect ratio */
+    padding-top: 5px;
+    border-radius: 10px;
 }
 
 .item h3, .item p {
@@ -166,6 +88,35 @@ a {
     color: #000;
 }
 
-.item h2 {
-    color: black;
+/* Styles for the Item Page (Larger images) */
+.item-detail {
+    text-align: center;
+    padding: 20px;
+}
+
+.item-detail img.item-image {
+    max-width: 80%; /* The image width will be 80% of its container */
+    height: auto;
+    margin-bottom: 20px; /* Space below the image */
+    border-radius: 10px; /* Optional: To match the border-radius from index */
+}
+
+.item-detail h2, .item-detail p, .item-detail h3 {
+    margin: 10px 0;
+}
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .store-section .item {
+        flex: 0 0 calc(50% - 10px); /* 2 items per row on smaller screens */
+    }
+
+    .item img {
+        width: 120px;
+        height: 160px;
+    }
+
+    .item-detail img.item-image {
+        max-width: 90%; /* Slightly smaller image on smaller screens */
+    }
 }
